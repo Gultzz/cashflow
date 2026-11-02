@@ -6,6 +6,12 @@ using CashFlow.Application.UseCases.Expenses.Register;
 using CashFlow.Application.UseCases.Expenses.Reports.Excel;
 using CashFlow.Application.UseCases.Expenses.Reports.Pdf;
 using CashFlow.Application.UseCases.Expenses.Update;
+using CashFlow.Application.UseCases.Login;
+using CashFlow.Application.UseCases.Users.ChangePasswordUseCase;
+using CashFlow.Application.UseCases.Users.DeleteAccount;
+using CashFlow.Application.UseCases.Users.GetProfile;
+using CashFlow.Application.UseCases.Users.Register;
+using CashFlow.Application.UseCases.Users.UpdateProfile;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace CashFlow.Application
@@ -33,6 +39,14 @@ namespace CashFlow.Application
 
             services.AddScoped<IGenerateExpenseReportExcelUseCase, GenerateExpenseReportExcelUseCase>();
             services.AddScoped<IGenerateExpenseReportPdfUseCase, GenerateExpenseReportPdfUseCase>();
+
+            services.AddScoped<IRegisterUserUseCase, RegisterUserUseCase>();
+            services.AddScoped<IGetUserProfileUseCase, GetUserProfileUseCase>();
+            services.AddScoped<IChangePasswordUseCase, ChangePasswordUseCase>();
+            services.AddScoped<IUpdateProfileUseCase, UpdateProfileUseCase>();
+            services.AddScoped<IDeleteAccountUseCase, DeleteAccountUseCase>();
+
+            services.AddScoped<IDoLoginUseCase, DoLoginUseCase>();
         }
     }
 }

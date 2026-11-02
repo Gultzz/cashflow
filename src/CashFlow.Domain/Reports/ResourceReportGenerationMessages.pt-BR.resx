@@ -153,4 +153,7 @@
   <data name="HI" xml:space="preserve">
     <value>Oi</value>
   </data>
+  <data name="NAME_EMPTY" xml:space="preserve">
+    <value>Nome vazio</value>
+  </data>
 </root>

@@ -5,26 +5,32 @@ using CashFlow.Domain.Repositories.Expenses;
 using ClosedXML.Excel;
 using CashFlow.Domain.Extensions;
 using DocumentFormat.OpenXml.Spreadsheet;
+using CashFlow.Domain.Services.LoggedUser;
 
 namespace CashFlow.Application.UseCases.Expenses.Reports.Excel
 {
     public class GenerateExpenseReportExcelUseCase : IGenerateExpenseReportExcelUseCase
     {
         private readonly IExpensesReadOnlyRepository _repositoryExpenses;
-        public GenerateExpenseReportExcelUseCase(IExpensesReadOnlyRepository repositoryExpenses)
+        private readonly ILoggedUser _loggedUser;
+        public GenerateExpenseReportExcelUseCase(IExpensesReadOnlyRepository repositoryExpenses, ILoggedUser loggedUser)
         {
             _repositoryExpenses = repositoryExpenses;
+            _loggedUser = loggedUser;
         }
+
         public async Task<byte[]> Execute(RequestInformationReportJson request)
         {
-            var expenses = await _repositoryExpenses.FilterByMonth(request.MonthYear);
+            var loggedUser = await _loggedUser.GetUser();
+
+            var expenses = await _repositoryExpenses.FilterByMonth(loggedUser, request.MonthYear);
             if(expenses.Count == 0)
             {
                 return [];
             }
             using var workbook = new XLWorkbook();
             
-            workbook.Author = "CashFlow";
+            workbook.Author = loggedUser.Name;
             workbook.Style.Font.FontSize = 12;
             workbook.Style.Font.FontName = "Calibri";
 

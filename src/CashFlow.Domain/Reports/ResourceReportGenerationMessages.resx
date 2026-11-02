@@ -153,4 +153,10 @@
   <data name="HI" xml:space="preserve">
     <value>Hi</value>
   </data>
+  <data name="c" xml:space="preserve">
+    <value />
+  </data>
+  <data name="NAME_EMPTY" xml:space="preserve">
+    <value>Name empty</value>
+  </data>
 </root>

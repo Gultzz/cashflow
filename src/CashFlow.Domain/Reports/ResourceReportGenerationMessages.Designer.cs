@@ -70,6 +70,15 @@ namespace CashFlow.Domain.Reports {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Name Empty.
+        /// </summary>
+        public static string c {
+            get {
+                return ResourceManager.GetString("c", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Cash.
         /// </summary>
         public static string CASH {

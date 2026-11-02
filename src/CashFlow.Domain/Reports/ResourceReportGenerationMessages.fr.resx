@@ -121,7 +121,7 @@
     <value>Titre</value>
   </data>
   <data name="PAYMENT_TYPE" xml:space="preserve">
-    <value>Type de Paiement</value>
+    <value>Mode de paiement</value>
   </data>
   <data name="DESCRIPTION" xml:space="preserve">
     <value>Description</value>
@@ -152,5 +152,8 @@
   </data>
   <data name="HI" xml:space="preserve">
     <value>Salut</value>
+  </data>
+  <data name="NAME_EMPTY" xml:space="preserve">
+    <value>Nom vide</value>
   </data>
 </root>
